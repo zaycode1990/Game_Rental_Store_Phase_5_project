@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  border : 1px solid red;
+}
+
+.navBar * {
+padding: 5rem;
+font-size: 1.5em;
+text-decoration: none;
+text-transform: uppercase;
+}
