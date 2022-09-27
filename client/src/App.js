@@ -14,15 +14,15 @@ import {Route, Routes } from 'react-router-dom';
 
 function App() {
 
-  const [games, setGames] = useState([])
+  const [users, setUsers] = useState([])
 
 useEffect(() => {
-  fetch('/games')
+  fetch('/users')
   .then(res => res.json())
-  .then(storeGames => setGames(storeGames))
+  .then(storeUsers => setUsers(storeUsers))
 },[])
 
-console.log(games)
+console.log(users)
 
   return(
 

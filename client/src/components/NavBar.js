@@ -10,15 +10,15 @@ const navigate = (e) => {
   return (
     <nav className="navBar">
 
-    <a href="/login" onClick={navigate}>
+    <a href="/login" name="login" onClick={navigate}>
       Login
     </a>
-    <a href="/signup" onClick={navigate}>
+    <a href="/signup" name="signup" onClick={navigate}>
       Signup
     </a>
-    <a href="/" onClick={navigate}>
+    {/* <a href="/" name="/" onClick={navigate}>
       Home
-    </a>
+    </a> */}
     <a href="/games" name="games" onClick={navigate}>
       Games
     </a>
@@ -28,7 +28,7 @@ const navigate = (e) => {
     <a href="/modifystore" name="modifystore" onClick={navigate}>
       ModifyStore
     </a>
-    <a href="/storeledger" onClick={navigate}>
+    <a href="/storeledger" name="storeledger" onClick={navigate}>
       storeledger
     </a>
   </nav>
