@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  
-  resources :user_games, only: [:create]
+  resources :user_games
+  resources :game_reviews
   resources :subscriptions 
-  resources :game_reviews, only: [:create]
   resources :games
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,5 +11,5 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  
+  post '/signup', to: "users#create"
 end

@@ -11,9 +11,65 @@ import {
   MDBInput,
   MDBCheckbox
 }
+
 from 'mdb-react-ui-kit';
+import { useNavigate } from 'react-router-dom';
+
+
+
+
 function Login() {
+
+
+
   const [justifyActive, setJustifyActive] = useState('tab1');;
+  const [password, setPassword] = useState("")
+  const [username, setUsername] = useState("");
+  const [usernameCreate, setUserNameCreate] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [passwordCreate, setPasswordCreate] = useState("");
+
+  const navigate = useNavigate()
+
+  function handleLogin(e) {
+    e.preventDefault();
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((r) => {
+       if (r.ok) {
+         localStorage.setItem("user", JSON.stringify({username}))
+         navigate("/games")
+       } else {
+         r.json().then((err) => console.log(err.errors));
+       }
+     });
+  }
+
+  function handleSignup(e) {
+    e.preventDefault();
+    fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ usernameCreate, passwordCreate, email, name, lastName }),
+    })//.then((r) => {
+    //   setIsLoading(false);
+    //   if (r.ok) {
+    //     r.json().then((user) => onLogin(user));
+    //   } else {
+    //     r.json().then((err) => setErrors(err.errors));
+    //   }
+    // });
+  }
+
+  
 
   const handleJustifyClick = (value) => {
     if (value === justifyActive) {
@@ -47,15 +103,15 @@ function Login() {
           <p className="text-center mt-3">or:</p>
         
 
-        <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='username'/>
-        <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
+        <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='username' onChange={(e) => { setUsername(e.target.value) }}/>
+        <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' onChange={(e) => { setPassword(e.target.value) }}/>
 
         <div className="d-flex justify-content-between mx-4 mb-4">
           <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
           <a href="!#">Forgot password?</a>
         </div>
 
-        <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
+        <MDBBtn onClick={(e) => handleLogin(e)} className="mb-4 w-100">Sign in</MDBBtn>
         <p className="text-center">Not a member? <a href="#!">Register</a></p>
 
       </MDBTabsPane>
@@ -67,16 +123,17 @@ function Login() {
           <p className="text-center mt-3">or:</p>
       
 
-        <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text'/>
-        <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='text'/>
-        <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
-        <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
+        <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text' onChange={(e) => { setName(e.target.value) }} />
+        <MDBInput wrapperClass='mb-4' label='LastName' id='form1' type='text' onChange={(e) => { setLastName(e.target.value) }} />
+        <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='text' onChange={(e) => { setUserNameCreate(e.target.value) }} />
+        <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email' onChange={(e) => { setEmail(e.target.value) }} />
+        <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' onChange={(e) => { setPasswordCreate(e.target.value) }} />
 
         {/* <div className='d-flex justify-content-center mb-4'>
           <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
         </div> */}
 
-        <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
+        <MDBBtn onSubmit={(e) => handleSignup(e)} className="mb-4 w-100">Sign up</MDBBtn>
 
       </MDBTabsPane>
 

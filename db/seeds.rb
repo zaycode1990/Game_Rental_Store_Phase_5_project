@@ -12,7 +12,7 @@ User.destroy_all
 
 def prepare
     username = Faker::Internet.username
-    password = Faker::Internet.password
+    password = "password"
     admin = Faker::Boolean.boolean(true_ratio: 0.2)
     first_name = Faker::Name.first_name
     last_name = Faker::Name.last_name
@@ -80,7 +80,7 @@ def prepare
  def user_game_prepare
     late = Faker::Boolean.boolean(true_ratio: 0.2)
     due_date = DateTime.new(2022, 9, 20)
-    returned = late = false ? true : false
+    returned = late == false ? true : false
     {   
         late: late,
         due_date: due_date,
