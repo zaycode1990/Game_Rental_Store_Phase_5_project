@@ -7,7 +7,6 @@ import {
   MDBTabsContent,
   MDBTabsPane,
   MDBBtn,
-  MDBIcon,
   MDBInput,
   MDBCheckbox
 }
@@ -52,14 +51,13 @@ function Login() {
   }
 
   function handleSignup(e) {
-    e.preventDefault();
     fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ usernameCreate, passwordCreate, email, name, lastName }),
-    })//.then((r) => {
+    }).then(res => res.json()).then(data => console.log(data)).catch(err=> console.log(err));//.then((r) => {
     //   setIsLoading(false);
     //   if (r.ok) {
     //     r.json().then((user) => onLogin(user));
@@ -133,7 +131,7 @@ function Login() {
           <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
         </div> */}
 
-        <MDBBtn onSubmit={(e) => handleSignup(e)} className="mb-4 w-100">Sign up</MDBBtn>
+        <MDBBtn onClick={(e) => handleSignup(e)} className="mb-4 w-100">Sign up</MDBBtn>
 
       </MDBTabsPane>
 

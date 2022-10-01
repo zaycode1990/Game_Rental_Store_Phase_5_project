@@ -13,6 +13,8 @@ import {Route, Routes } from 'react-router-dom';
 // import { useState, useEffect } from "react";
 
 function App() {
+// useSelector hook to get state and use useDispatch
+
 
   const [users, setUsers] = useState([])
 
