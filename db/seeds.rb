@@ -47,21 +47,21 @@ def prepare
      platform:"Playstation 2",
      publisher: "Atlas",
      inventory: inventory,
-     img: "../gameboxart/112775-shin-megami-tensei-persona-3-fes-playstation-2-front-cover.jpg"
+     img: "app/gameboxart/112775-shin-megami-tensei-persona-3-fes-playstation-2-front-cover.jpg"
     },
     {
      title: "Metal Gear Solid 3",
      platform:"Playstation 2",
      publisher: "Kojima",
      inventory: inventory,
-     img: "../gameboxart/metal_gear_3.jpg"
+     img: Rails.root.join('/app', '/gameboxart/', 'metal_gear_3.jpg')
     },
     {
      title: "Devil May Cry 3",
      platform:"Playstation 2",
      publisher: "Capcom",
      inventory: inventory,
-     img: "../gameboxart/1125-devil-may-cry-3.jpg"
+     img: "app/gameboxart/1125-devil-may-cry-3.jpg"
     },
     {
      title: "Jax 3",
@@ -96,7 +96,7 @@ def prepare
      platform:"Playstation 2",
      publisher: "Ubisoft",
      inventory: inventory,
-     img: "../gameboxart/ps2_rayman_3_hoodlum_havoc-110214.jpg"
+     img: "../app/gameboxart/ps2_rayman_3_hoodlum_havoc-110214.jpg"
     },
     {
      title: "Final Fantasy X",

@@ -16,15 +16,15 @@ function App() {
 // useSelector hook to get state and use useDispatch
 
 
-  const [users, setUsers] = useState([])
+  const [games, setGames] = useState([])
 
 useEffect(() => {
-  fetch('/users')
+  fetch('/games')
   .then(res => res.json())
-  .then(storeUsers => setUsers(storeUsers))
+  .then(storeGames => setGames(storeGames))
 },[])
 
-console.log(users)
+console.log(games)
 
   return(
 
@@ -34,7 +34,7 @@ console.log(users)
         <Route path="/"  element={<Home/>} />
         <Route path="/login" index element={<Login/>}/>
         <Route path="/signup" element={<Signup/>} />
-        <Route path="/games" element={<Games/>}  />
+        <Route path="/games" element={<Games games={games}/>}  />
         <Route path="/cart" element={<Cart/>}  />
         <Route path="/modifystore" element={<ModifyStore/>}  />
         <Route path="/storeledger" element={<StoreLedger/>}  />

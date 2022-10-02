@@ -1,8 +1,17 @@
 import React from 'react'
 
-function Games() {
+function Games({games}) {
+  
+const gamesImage = games.map( game => 
+  <img key={game.id} src={game.img} alt = "games" height={200} width={200}/>
+  )
+  
+
+
   return (
-    <div>Games</div>
+    <div>
+     {gamesImage}
+    </div>
   )
 }
 
