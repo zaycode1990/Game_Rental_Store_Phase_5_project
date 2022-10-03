@@ -98,7 +98,7 @@ text-transform: uppercase;
 
 .bg-danger.rounded-pill.badge-notification {
   position: inherit;
-  padding:7px;
+  padding:6px;
   margin: auto;
-  font-size:.92em ;
+  font-size:.81em ;
 }
