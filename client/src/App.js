@@ -17,6 +17,7 @@ function App() {
 
 
   const [games, setGames] = useState([])
+  const [gamesInCart, setGamesInCart] = useState([])
 
 useEffect(() => {
   fetch('/games')
@@ -29,7 +30,7 @@ console.log(games)
   return(
 
     <>
-  <NavBar />
+  <NavBar gamesInCart={gamesInCart}/>
       <Routes>
         <Route path="/"  element={<Home/>} />
         <Route path="/login" index element={<Login/>}/>

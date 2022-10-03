@@ -69,3 +69,35 @@ text-transform: uppercase;
   margin-top: 10%;
   text-align: center;
 }
+
+.flexgames {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+}
+
+.mx-3 {
+  display: grid;
+  position: relative
+}
+
+.layer1{
+  position: absolute;
+  right: 0;
+  bottom: 0 ;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+.bg-danger.rounded-pill.badge-notification {
+  position: inherit;
+  padding:7px;
+  font-size:.90em ;
+}

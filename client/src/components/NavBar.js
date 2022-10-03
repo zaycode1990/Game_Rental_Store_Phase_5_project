@@ -1,6 +1,7 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-function NavBar() {
+import { MDBBadge, MDBIcon } from 'mdb-react-ui-kit';
+function NavBar({gamesInCart}) {
     const nav = useNavigate()
 
 const navigate = (e) => {
@@ -9,7 +10,12 @@ const navigate = (e) => {
 }
   return (
     <nav className="navBar">
-
+      <a className='mx-3' href='/cart'>
+        <MDBIcon className="layer1" fas icon='shopping-cart' size='lg' />
+        <MDBBadge className='layer2' color='danger' notification pill >
+          {gamesInCart.length}
+        </MDBBadge>
+      </a>
     <a href="/login" name="login" onClick={navigate}>
       Login
     </a>
