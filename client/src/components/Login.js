@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {
   MDBContainer,
   MDBTabs,
@@ -10,64 +10,131 @@ import {
   MDBInput,
   MDBCheckbox
 }
-
 from 'mdb-react-ui-kit';
+import {UserContext} from '../UserContext'
 import { useNavigate } from 'react-router-dom';
 
 
 
 
-function Login() {
+function Login({errors, setErrors}) {
 
 
-
+  const {user, setUser} = useContext(UserContext)
   const [justifyActive, setJustifyActive] = useState('tab1');;
   const [password, setPassword] = useState("")
   const [username, setUsername] = useState("");
   const [usernameCreate, setUserNameCreate] = useState("");
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [passwordCreate, setPasswordCreate] = useState("");
-
+  const [city, setCity] = useState("")
+  const [state, setState] = useState("")
+  const [country, setCountry] = useState("")
+  const [zip, setZip] = useState("")
+  const [creditCard, setCreditCard] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("")
   const navigate = useNavigate()
-
-  function handleLogin(e) {
+  
+  
+  const resetForm = () => {
+  setUserNameCreate("")
+  setPasswordCreate("")
+  setEmail("")
+  setFirstName("")
+  setLastName("")
+  setCity("")
+  setState("")
+  setCountry("")
+  setZip("")
+  setCreditCard("")
+  setPhoneNumber("")
+} 
+ async function handleLogin(e) {
     e.preventDefault();
-    fetch("/login", {
+   const login = await fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, password }),
-    }).then((r) => {
-       if (r.ok) {
-         localStorage.setItem("user", JSON.stringify({username}))
-         navigate("/games")
-       } else {
-         r.json().then((err) => console.log(err.errors));
-       }
-     });
-  }
+    })
+    
 
-  function handleSignup(e) {
-    fetch("/signup", {
+    const requestJSON = await  login.json()
+    console.log(requestJSON)
+    if (login.ok)
+    { 
+      setUser(requestJSON)
+      setUsername("")
+      setPassword("")
+      resetForm() 
+      navigate("/")
+    }
+  
+    else {
+      setErrors(requestJSON.messages)
+    }
+  }
+       
+
+  console.log(user)
+
+async function handleSignup(e) {
+    e.preventDefault()
+ const signup =  await  fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ usernameCreate, passwordCreate, email, name, lastName }),
-    }).then(res => res.json()).then(data => console.log(data)).catch(err=> console.log(err));//.then((r) => {
-    //   setIsLoading(false);
-    //   if (r.ok) {
-    //     r.json().then((user) => onLogin(user));
-    //   } else {
-    //     r.json().then((err) => setErrors(err.errors));
-    //   }
-    // });
+      body: JSON.stringify({ 
+        username: usernameCreate,
+         password: passwordCreate, 
+         email: email, 
+         first_name: firstName, 
+         last_name: lastName, 
+         city: city, 
+         state: state, 
+         country: country,
+         zip: zip, 
+         credit_card: creditCard, 
+         phone_number: phoneNumber }),
+    
+  })
+
+  const requestJSON = await signup.json()
+  if (signup.ok)
+  { 
+  navigate("/")
+  resetForm() 
   }
 
-  
+  else {
+    setErrors(requestJSON.messages)
+  }
+}
+
+ // }).then((r) => {
+    //   // if (r.ok) {
+    //   //  
+    //   //  
+    //   // }
+    //   console.log(r)
+    //  r.json()
+     
+    //  throw new Error ("what the hell is going on")
+    // }
+    // ).catch(err=> console.log(err));//.then((r) => {
+    // //   setIsLoading(false);
+    // //   if (r.ok) {
+    // //     r.json().then((user) => onLogin(user));
+    // //   } else {
+    // //     r.json().then((err) => setErrors(err.errors));
+    // //   }
+    // // });
+
+  const errMessages = errors.map((err, idx) => <h1 key={idx}>{err}</h1>)
 
   const handleJustifyClick = (value) => {
     if (value === justifyActive) {
@@ -77,8 +144,8 @@ function Login() {
     setJustifyActive(value);
   };
   return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
-
+    <MDBContainer  className="p-3 my-5 d-flex flex-column w-50">
+  {errMessages}
     <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
       <MDBTabsItem>
         <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
@@ -94,6 +161,7 @@ function Login() {
 
     <MDBTabsContent>
 
+
       <MDBTabsPane show={justifyActive === 'tab1'}>
 
      
@@ -101,8 +169,15 @@ function Login() {
           <p className="text-center mt-3">or:</p>
         
 
-        <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='username' onChange={(e) => { setUsername(e.target.value) }}/>
-        <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' onChange={(e) => { setPassword(e.target.value) }}/>
+        
+        <MDBInput wrapperClass='mb-4' label='Username' id='form1.5' type='username' onChange={(e) => { setUsername(e.target.value) }}/>
+        
+        {/* {errMessages} */}
+       
+
+        <MDBInput wrapperClass='mb-4' label='Password' id='form2.5' type='password' onChange={(e) => { setPassword(e.target.value) }}/>
+          
+       {/* {errMessages} */}
 
         <div className="d-flex justify-content-between mx-4 mb-4">
           <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
@@ -121,15 +196,49 @@ function Login() {
           <p className="text-center mt-3">or:</p>
       
 
-        <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text' onChange={(e) => { setName(e.target.value) }} />
-        <MDBInput wrapperClass='mb-4' label='LastName' id='form1' type='text' onChange={(e) => { setLastName(e.target.value) }} />
-        <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='text' onChange={(e) => { setUserNameCreate(e.target.value) }} />
-        <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email' onChange={(e) => { setEmail(e.target.value) }} />
-        <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' onChange={(e) => { setPasswordCreate(e.target.value) }} />
+        <MDBInput wrapperClass='mb-4' label='First Name' id='form1' type='text' onChange={(e) => { setFirstName(e.target.value) }} />
+          
+        {/* {errMessages} */}
 
-        {/* <div className='d-flex justify-content-center mb-4'>
-          <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
-        </div> */}
+        <MDBInput wrapperClass='mb-4' label='Last Name' id='form2' type='text' onChange={(e) => { setLastName(e.target.value) }} />
+
+        {/* {errMessages} */}
+
+        <MDBInput wrapperClass='mb-4' label='Username' id='form3' type='text' onChange={(e) => { setUserNameCreate(e.target.value) }} />
+
+       {/* {errMessages} */}
+
+        <MDBInput wrapperClass='mb-4' label='Email' id='form4' type='email' onChange={(e) => { setEmail(e.target.value) }} />
+
+        {/* {errMessages} */}
+
+        <MDBInput wrapperClass='mb-4' label='Password' id='form5' type='password' onChange={(e) => { setPasswordCreate(e.target.value) }} />
+
+       {/* {errMessages} */}
+
+        <MDBInput wrapperClass='mb-4' label='City' id='form6' type='text' onChange={(e) => { setCity(e.target.value) }} />
+
+        {/* {errMessages} */}
+
+        <MDBInput wrapperClass='mb-4' label='State' id='form7' type='text' onChange={(e) => { setState(e.target.value) }} />
+        
+       {/* {errMessages} */}
+
+        <MDBInput wrapperClass='mb-4' label='Country' id='form8' type='text' onChange={(e) => { setCountry(e.target.value) }} />
+
+       {/* {errMessages} */}
+
+        <MDBInput wrapperClass='mb-4' label='Zip' id='form9' maxLength={10} type='number' onChange={(e) => { setZip(e.target.value) }} />
+
+       {/* {errMessages} */}
+
+        <MDBInput wrapperClass='mb-4' label='Credit Card' maxLength={16} id='form10' type='text' onChange={(e) => { setCreditCard(e.target.value) }} />
+
+       {/* {errMessages} */}
+
+        <MDBInput wrapperClass='mb-4' label='Phone Number' maxLength={16} id='form11' type="text" onChange={(e) => { setPhoneNumber(e.target.value) }} />
+        
+        {/* {errMessages} */}
 
         <MDBBtn onClick={(e) => handleSignup(e)} className="mb-4 w-100">Sign up</MDBBtn>
 

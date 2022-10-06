@@ -39,226 +39,351 @@ def prepare
      credit_card: credit_card
     }
   end
+
+  
+
   
   inventory = 50
-  games = Game.create!([
-    {
-     title: "Persona 3",
-     platform:"Playstation 2",
-     publisher: "Atlas",
-     inventory: inventory,
-     img: "app/gameboxart/112775-shin-megami-tensei-persona-3-fes-playstation-2-front-cover.jpg"
-    },
-    {
-     title: "Metal Gear Solid 3",
-     platform:"Playstation 2",
-     publisher: "Kojima",
-     inventory: inventory,
-     img: Rails.root.join('/app', '/gameboxart/', 'metal_gear_3.jpg')
-    },
-    {
-     title: "Devil May Cry 3",
-     platform:"Playstation 2",
-     publisher: "Capcom",
-     inventory: inventory,
-     img: "app/gameboxart/1125-devil-may-cry-3.jpg"
-    },
-    {
-     title: "Jax 3",
-     platform:"Playstation 2",
-     publisher: "Naughty Dog",
-     inventory: inventory,
-     img: "../gameboxart/153271-jak-3-playstation-2-front-cover.jpg"
-    },
-    {
-     title: "God of War 2",
-     platform:"Playstation 2",
-     publisher: "Sony",
-     inventory: inventory,
-     img: "../gameboxart/godofwar2.jpg"
-    },
-    {
-     title: "Kingdom Hearts 2",
-     platform:"Playstation 2",
-     publisher: "Square Enix",
-     inventory: inventory,
-     img: "../gameboxart/kingdomhearts2.jpg"
-    },
-    {
-     title: "Ratchet and Clank 3",
-     platform:"Playstation 2",
-     publisher: "Insomniac Games",
-     inventory: inventory,
-     img: "../gameboxart/Ratchetandclank3box.jpg"
-    },
-    {
-     title: "Rayman: Hoodlum Havoc",
-     platform:"Playstation 2",
-     publisher: "Ubisoft",
-     inventory: inventory,
-     img: "../app/gameboxart/ps2_rayman_3_hoodlum_havoc-110214.jpg"
-    },
-    {
-     title: "Final Fantasy X",
-     platform:"Playstation 2",
-     publisher: "Square Enix",
-     inventory: inventory,
-     img: "../gameboxart/Ffxboxart.jpg"
-    },
-    {
-     title: "Shadow of Colossus",
-     platform:"Playstation 2",
-     publisher: "Sony",
-     inventory: inventory,
-     img: "../gameboxart/shadowofcolossus.jpg"
-    },
-    {
-     title: "Halo 3",
-     platform: "Xbox 360",
-     publisher: "Bungie",
-     inventory: inventory,
-     img:"../gameboxart/halo3.jpg" 
-    },
-    {
-     title: "Halo Reach",
-     platform: "Xbox 360",
-     publisher: "Bungie",
-     inventory: inventory,
-     img: "../gameboxart/800px-Halo_Reach_(Standard_with_ESRB).png"
-    },
-    {
-     title: "Halo 4",
-     platform: "Xbox 360",
-     publisher: "Bungie",
-     inventory: inventory,
-     img: "../gameboxart/halo4.jpg"
-    },
-    {
-     title: "Gears of War",
-     platform: "Xbox 360",
-     publisher: "Epic Games",
-     inventory: inventory,
-     img: "../gameboxart/gearsofwar.jpg"
-    },
-    {
-     title: "Gears of War 2",
-     platform: "Xbox 360",
-     publisher: "Epic Games",
-     inventory: inventory,
-     img: "../gameboxart/15418-gears-of-war-2.png" 
-    },
-    {
-     title: "Gears of War 3",
-     platform: "Xbox 360",
-     publisher:"Epic Games",
-     inventory: inventory,
-     img:"../gameboxart/gears-3.jpg" 
-    },
-    {
-     title: "Fable 2",
-     platform: "Xbox 360",
-     publisher: "Lionhead Studios",
-     inventory: inventory,
-     img:"app/gameboxart/fable2.jpg" 
-    },
-    {
-     title: "Crackdown",
-     platform: "Xbox 360",
-     publisher: "Microsoft Game Studios",
-     inventory: inventory,
-     img: "../gameboxart/crackdown.jpg" 
-    },
-    {
-     title: "Forza Motorsport 3",
-     platform: "Xbox 360",
-     publisher: "Microsoft Game Studios",
-     inventory: inventory,
-     img: "../gameboxart/Forza_Motorsport_3_Microsoft_Xbox_360_-_Gandorion_Games.jpg" 
-    },
-    {
-     title: "Crackdown 2",
-     platform: "Xbox 360",
-     publisher: "Microsoft Game Studios",
-     inventory: inventory,
-     img: "../gameboxart/crackdown2.jpg"
-    },
-    {
-     title: "Donkey Kong Country Returns",
-     platform: "Nintendo",
-     publisher: "Nintendo",
-     inventory: inventory,
-     img: "../gameboxart/donkeykongcountry.jpg"
-    },
-    {
-     title: "Super Paper Mario",
-     platform: "Nintendo",
-     publisher: "Nintendo",
-     inventory: inventory,
-     img: "../gameboxart/PaperMario.jpg"
-    },
-    {
-     title: "Mario Galaxy",
-     platform: "Nintendo",
-     publisher: "Nintendo",
-     inventory: inventory,
-     img: "../gameboxart/mariogalaxy.jpg" 
-    },
-    {
-     title: "Mario Galaxy 2",
-     platform: "Nintendo",
-     publisher: "Nintendo",
-     inventory: inventory,
-     img: "../gameboxart/mariogalaxy2.jpg"
-    },
-    {
-     title: "Mario Smash Brawl",
-     platform: "Nintendo",
-     publisher: "Nintendo",
-     inventory: inventory,
-     img: "../gameboxart/mariosmashbrosbrawl.jpg"
-    },
-    {
-     title: "The Legend of Zelda: Skyward Sword ",
-     platform: "Nintendo",
-     publisher: "Nintendo",
-     inventory: inventory,
-     img: "../gameboxart/zeldasky.jpg"
-    },
-    {
-     title: "Metroid Prime Trilogy",
-     platform: "Nintendo",
-     publisher: "Nintendo",
-     inventory: inventory,
-     img: "../gameboxart/metroidtrilogy.jpg"
-    },
-    {
-     title: "The Legend of Zelda: Twilight Princess",
-     platform: "Nintendo",
-     publisher: "Nintendo",
-     inventory: inventory,
-     img: "../gameboxart/zeldatwilight.jpg"
-    },
-    {
-     title: "Xenoblade Chronicles",
-     platform: "Nintendo",
-     publisher: "Nintendo",
-     inventory: inventory,
-     img: "../gameboxart/xenobladechronicles.jpg"
-    },
-    {
-     title: "Okami",
-     platform: "Nintendo",
-     publisher: "Capcom",
-     inventory: inventory,
-     img: "../gameboxart/Okami.jpg"
-    }
-  ])
+
+  game1 = Game.create!(
+    title: "Metal Gear Solid 3",
+    platform:"Playstation 2",
+    publisher: "Kojima",
+    inventory: inventory,
+)
+  game2 = Game.create!(
+    title: "Devil May Cry 3",
+    platform:"Playstation 2",
+    publisher: "Capcom",
+    inventory: inventory,
+)
+  game3 = Game.create!(
+    title: "Jax 3",
+    platform:"Playstation 2",
+    publisher: "Naughty Dog",
+    inventory: inventory,
+)
+  game4 = Game.create!(
+    title: "God of War 2",
+    platform:"Playstation 2",
+    publisher: "Sony",
+    inventory: inventory,
+)
+  game5 = Game.create!(
+    title: "Kingdom Hearts 2",
+    platform:"Playstation 2",
+    publisher: "Square Enix",
+    inventory: inventory,
+)
+  game6 = Game.create!(
+    title: "Ratchet and Clank 3",
+    platform:"Playstation 2",
+    publisher: "Insomniac Games",
+    inventory: inventory,
+)
+  game7 = Game.create!(
+    title: "Rayman: Hoodlum Havoc",
+    platform:"Playstation 2",
+    publisher: "Ubisoft",
+    inventory: inventory,
+)
+  game8 = Game.create!(
+    title: "Final Fantasy X",
+    platform:"Playstation 2",
+    publisher: "Square Enix",
+    inventory: inventory,
+)
+  game9 = Game.create!(
+    title: "Shadow of Colossus",
+    platform:"Playstation 2",
+    publisher: "Sony",
+    inventory: inventory,
+)
+  game10 = Game.create!(
+    title: "Halo 3",
+    platform: "Xbox 360",
+    publisher: "Bungie",
+    inventory: inventory,
+)
+  game11 = Game.create!(
+    title: "Halo Reach",
+    platform: "Xbox 360",
+    publisher: "Bungie",
+    inventory: inventory,
+)
+  game12 = Game.create!(
+    title: "Halo 4",
+    platform: "Xbox 360",
+    publisher: "Bungie",
+    inventory: inventory,
+)
+  game13 = Game.create!(
+    title: "Gears of War",
+    platform: "Xbox 360",
+    publisher: "Epic Games",
+    inventory: inventory,
+)
+  game14 = Game.create!(
+    title: "Gears of War 2",
+    platform: "Xbox 360",
+    publisher: "Epic Games",
+    inventory: inventory,
+)
+  game15 = Game.create!(
+    title: "Gears of War 3",
+    platform: "Xbox 360",
+    publisher:"Epic Games",
+    inventory: inventory,
+)
+  game16 = Game.create!(
+    title: "Fable 2",
+    platform: "Xbox 360",
+    publisher: "Lionhead Studios",
+    inventory: inventory,
+)
+  game17 = Game.create!(
+    title: "Crackdown",
+    platform: "Xbox 360",
+    publisher: "Microsoft Game Studios",
+    inventory: inventory,
+)
+  game18 = Game.create!(
+    title: "Forza Motorsport 3",
+    platform: "Xbox 360",
+    publisher: "Microsoft Game Studios",
+    inventory: inventory,
+)
+  game19 = Game.create!(
+    title: "Crackdown 2",
+    platform: "Xbox 360",
+    publisher: "Microsoft Game Studios",
+    inventory: inventory,
+)
+  game20 = Game.create!(
+    title: "Donkey Kong Country Returns",
+    platform: "Nintendo",
+    publisher: "Nintendo",
+    inventory: inventory,
+)
+  game21 = Game.create!(
+    title: "Super Paper Mario",
+    platform: "Nintendo",
+    publisher: "Nintendo",
+    inventory: inventory,
+)
+  game22 = Game.create!(
+    title: "Mario Galaxy",
+    platform: "Nintendo",
+    publisher: "Nintendo",
+    inventory: inventory,
+)
+  game23 = Game.create!(
+    title: "Mario Galaxy 2",
+    platform: "Nintendo",
+    publisher: "Nintendo",
+    inventory: inventory,
+)
+  game24 = Game.create!(
+    title: "Mario Smash Brawl",
+    platform: "Nintendo",
+    publisher: "Nintendo",
+    inventory: inventory,
+)
+  game25 = Game.create!(
+    title: "The Legend of Zelda: Skyward Sword ",
+    platform: "Nintendo",
+    publisher: "Nintendo",
+    inventory: inventory,
+)
+  game26 = Game.create!(
+    title: "Metroid Prime Trilogy",
+    platform: "Nintendo",
+    publisher: "Nintendo",
+    inventory: inventory,
+)
+  game27 = Game.create!(
+    title: "The Legend of Zelda: Twilight Princess",
+    platform: "Nintendo",
+    publisher: "Nintendo",
+    inventory: inventory,
+)
+  game28 = Game.create!(
+    title: "Xenoblade Chronicles",
+    platform: "Nintendo",
+    publisher: "Nintendo",
+    inventory: inventory,
+)
+  game29 = Game.create!(
+    title: "Okami",
+    platform: "Nintendo",
+    publisher: "Capcom",
+    inventory: inventory,
+  )
+  # ])
+
+  game30= Game.create!(
+    title: "Persona 3",
+    platform:"Playstation 2",
+    publisher: "Atlas",
+    inventory: inventory,
+  )
+
+  game1.image.attach(
+    io: File.open('./public/gameboxart/metal_gear_3.jpg'), 
+    filename: 'metal_gear_3.jpg', 
+    content_type: 'image/jpg'
+  )
+  game2.image.attach(
+    io: File.open('./public/gameboxart/1125-devil-may-cry-3.jpg'), 
+    filename: '1125-devil-may-cry-3.jpg', 
+    content_type: 'image/jpg'
+  )
+  game3.image.attach(
+    io: File.open('./public/gameboxart/153271-jak-3-playstation-2-front-cover.jpg'), 
+    filename: '153271-jak-3-playstation-2-front-cover.jpg', 
+    content_type: 'image/jpg'
+  )
+  game4.image.attach(
+    io: File.open('./public/gameboxart/godofwar2.jpg'), 
+    filename: 'godofwar2.jpg', 
+    content_type: 'image/jpg'
+  )
+  game5.image.attach(
+    io: File.open('./public/gameboxart/kingdomhearts2.jpg'), 
+    filename: 'kingdomhearts2.jpg', 
+    content_type: 'image/jpg'
+  )
+  game6.image.attach(
+    io: File.open('./public/gameboxart/Ratchetandclank3box.jpg'), 
+    filename: 'Ratchetandclank3box.jpg', 
+    content_type: 'image/jpg'
+  )
+  game7.image.attach(
+    io: File.open('./public/gameboxart/ps2_rayman_3_hoodlum_havoc-110214.jpg'), 
+    filename: 'ps2_rayman_3_hoodlum_havoc-110214.jpg', 
+    content_type: 'image/jpg'
+  )
+  game8.image.attach(
+    io: File.open('./public/gameboxart/Ffxboxart.jpg'), 
+    filename: 'Ffxboxart.jpg', 
+    content_type: 'image/jpg'
+  )
+  game9.image.attach(
+    io: File.open('./public/gameboxart/shadowofcolossus.jpg'), 
+    filename: 'shadowofcolossus.jpg', 
+    content_type: 'image/jpg'
+  )
+  game10.image.attach(
+    io: File.open('./public/gameboxart/halo3.jpg'), 
+    filename: 'halo3.jpg', 
+    content_type: 'image/jpg'
+  )
+  game11.image.attach(
+    io: File.open('./public/gameboxart/haloreach.png'), 
+    filename: 'haloreach.png', 
+    content_type: 'image/png'
+  )
+  game12.image.attach(
+    io: File.open('./public/gameboxart/halo4.jpg'), 
+    filename: 'halo4.jpg', 
+    content_type: 'image/jpg'
+  )
+  game13.image.attach(
+    io: File.open('./public/gameboxart/gearsofwar.jpg'), 
+    filename: 'gearsofwar.jpg', 
+    content_type: 'image/jpg'
+  )
+  game14.image.attach(
+    io: File.open('./public/gameboxart/15418-gears-of-war-2.png'), 
+    filename: '15418-gears-of-war-2.png', 
+    content_type: 'image/png'
+  )
+  game15.image.attach(
+    io: File.open('./public/gameboxart/gears-3.jpg'), 
+    filename: 'gears-3.jpg', 
+    content_type: 'image/jpg'
+  )
+  game16.image.attach(
+    io: File.open('./public/gameboxart/fable2.jpg'), 
+    filename: 'fable2.jpg', 
+    content_type: 'image/jpg'
+  )
+  game17.image.attach(
+    io: File.open('./public/gameboxart/crackdown.jpg'), 
+    filename: 'crackdown.jpg', 
+    content_type: 'image/jpg'
+  )
+  game18.image.attach(
+    io: File.open('./public/gameboxart/Forza_Motorsport_3_Microsoft_Xbox_360_-_Gandorion_Games.jpg'), 
+    filename: 'Forza_Motorsport_3_Microsoft_Xbox_360_-_Gandorion_Games.jpg', 
+    content_type: 'image/jpg'
+  )
+  game19.image.attach(
+    io: File.open('./public/gameboxart/crackdown2.jpg'), 
+    filename: 'crackdown2.jpg', 
+    content_type: 'image/jpg'
+  )
+  game20.image.attach(
+    io: File.open('./public/gameboxart/donkeykongcountry.jpg'), 
+    filename: 'donkeykongcountry.jpg', 
+    content_type: 'image/jpg'
+  )
+  game21.image.attach(
+    io: File.open('./public/gameboxart/PaperMario.jpg'), 
+    filename: 'PaperMario.jpg', 
+    content_type: 'image/jpg'
+  )
+  game22.image.attach(
+    io: File.open('./public/gameboxart/mariogalaxy.jpg'), 
+    filename: 'mariogalaxy.jpg', 
+    content_type: 'image/jpg'
+  )
+  game23.image.attach(
+    io: File.open('./public/gameboxart/mariogalaxy2.jpg'), 
+    filename: 'mariogalaxy2.jpg', 
+    content_type: 'image/jpg'
+  )
+  game24.image.attach(
+    io: File.open('./public/gameboxart/mariosmashbrosbrawl.jpg'), 
+    filename: 'mariosmashbrosbrawl.jpg', 
+    content_type: 'image/jpg'
+  )
+  game25.image.attach(
+    io: File.open('./public/gameboxart/zeldasky.jpg'), 
+    filename: 'zeldasky.jpg', 
+    content_type: 'image/jpg'
+  )
+  game26.image.attach(
+    io: File.open('./public/gameboxart/metroidtrilogy.jpg'), 
+    filename: 'metroidtrilogy.jpg', 
+    content_type: 'image/jpg'
+  )
+  game27.image.attach(
+    io: File.open('./public/gameboxart/zeldatwilight.jpg'), 
+    filename: 'zeldatwilight.jpg', 
+    content_type: 'image/jpg'
+  )
+  game28.image.attach(
+    io: File.open('./public/gameboxart/xenobladechronicles.jpg'), 
+    filename: 'xenobladechronicles.jpg', 
+    content_type: 'image/jpg'
+  )
+  game29.image.attach(
+    io: File.open('./public/gameboxart/Okami.jpg'), 
+    filename: 'Okami.jpg', 
+    content_type: 'image/jpg'
+  )
+  game30.image.attach(
+    io: File.open('./public/gameboxart/112775-shin-megami-tensei-persona-3-fes-playstation-2-front-cover.jpg'), 
+    filename: '112775-shin-megami-tensei-persona-3-fes-playstation-2-front-cover.jpg', 
+    content_type: 'image/jpg'
+  )
 
   # def game_prepare
-  #   title = Faker::Game.title
-  #   platform = Faker::Game.platform
-  #   publisher = ["Naughty Dog",
-  #   "Rockstar Games",
+  #  title = Faker::Gametitle
+  #  platform = Faker::ame.platform
+  #  publisher = ["Nauhty Dog",
+  #  "Rockstar Games"
   #   "Kojima Productions",
   #   "CD Projekt Red",
   #   "FromSoftware",
@@ -268,10 +393,10 @@ def prepare
   #   "Bioware"].sample
   #   inventory = (1..50).to_a.sample
   #   {
-  #   title: title,
-  #   platform: platform,
-  #   publisher: publisher,
-  #   inventory: inventory 
+  #  title:title,
+  #  platfrm: platform,
+  #  publsher: publisher,
+  #  invntory: inventory 
   #   }
   # end
 
@@ -285,15 +410,14 @@ def prepare
   end
 
   def review_prepare
-  title = Faker::Lorem.word
-  desc = Faker::Lorem.paragraph(sentence_count: 4)
-  {
-    title: title,
-    desc: desc
+title = Faker::Lorem.word
+desc = Faker::Lorem.paragraph(sentence_count: 4)
+    {
+  title:title,
+  desc: desc
   }
-  end
- 
- def user_game_prepare
+    end
+  def user_game_prepare
     late = Faker::Boolean.boolean(true_ratio: 0.2)
     due_date = DateTime.new(2022, 9, 20)
     returned = late == false ? true : false
@@ -303,7 +427,7 @@ def prepare
         returned: returned
     }
     
- end
+end
 
 
 #  10.times{game = Game.create(game_prepare)}
@@ -312,16 +436,13 @@ def prepare
 
   10.times {
     user = User.create(prepare)
-     subscription = Subscription.create(sub_status: "tier 1", sub_fee: 12.50, user_id: user.id)
-        user.games  << Game.find(counter)
-     counter += 1 
-     review = GameReview.create(review_prepare)
-     review.user_id = user.id 
-     review.game_id = Game.all.sample.id
-     review.save
-     
-    }
+    subscription = Subscription.create(sub_status: "tier 1", sub_fee: 12.50, user_id: user.id)
+    # user.games  << Game.find(counter)
+    counter += 1 
+    review = GameReview.create(review_prepare)
+    review.user_id = user.id 
+    review.game_id = Game.all.sample.id
+    review.save
     
-
-  
+    }
   

@@ -5,6 +5,7 @@ class User < ApplicationRecord
     validates :password, length: { in: 6..20 }
     validates :credit_card, length: { is: 16 }
     validates :email, uniqueness: true
+    validates :zip, length: {in: 5..10}
 
 
     has_many :user_games

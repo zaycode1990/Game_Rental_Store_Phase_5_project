@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {
   MDBCard,
   MDBCardBody,
@@ -7,24 +7,27 @@ import {
   MDBCardImage,
   MDBBtn
 } from 'mdb-react-ui-kit';
-function Games({games}) {
+import {UserContext} from '../UserContext'
+function Games({games, handleClick, handleDelete}) {
 
+const{user} = useContext(UserContext)
   
-  
-const gamesImage = games.map( game => 
+const gamesImage = games.map( game => {
+  return (
   <div>
    <MDBCard key={game.id}>
-      <MDBCardImage src={game.image_url} position='top' alt='...' width={400} height={400}/>
+      <MDBCardImage src={game.image_url} position='top' alt='video game' width={400} height={400}/>
       <MDBCardBody>
         <MDBCardTitle>{game.title}</MDBCardTitle>
         <MDBCardText>
          {game.platform} | {game.publisher}
         </MDBCardText>
-        <MDBBtn href='#'>Add to cart</MDBBtn>
+       {user.admin ?  <MDBBtn onClick={()=> handleDelete(game.id)} className='mx-2' color='danger'> Delete Game</MDBBtn> : <MDBBtn onClick={user.id === false ? null : () => handleClick(game)}>Add to cart</MDBBtn> } 
       </MDBCardBody>
     </MDBCard>
     </div>
-  
+  )
+}
   );
   
   

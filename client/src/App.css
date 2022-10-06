@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color:rebeccapurple;
 }
 
 .App-logo {
@@ -12,6 +13,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+
 
 .App-header {
   background-color: #282c34;
@@ -40,7 +43,7 @@
 .navBar {
   display: flex;
   justify-content: center;
-  border : 1px solid red;
+  border : 1px solid rgb(0, 0, 255);
 }
 
 .navBar * {
@@ -102,3 +105,32 @@ text-transform: uppercase;
   margin: auto;
   font-size:.81em ;
 }
+
+
+.btn.btn-primary.btn-rounded {
+  padding:.55rem;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+
+.formStyle *{
+  align-items: center;
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.formStyle {
+  max-width: 64em;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10%;
+    text-align: center;
+}
+
+

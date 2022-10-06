@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   # before_action :set_game, only: %i[ show update destroy ]
-
+  skip_before_action :authorize, only: :index
   # GET /games
   def index
     games = Game.all
@@ -46,6 +46,6 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.require(:game).permit(:title, :platform, :publisher, :inventory, :img)
+      params.require(:game).permit(:title, :platform, :publisher, :inventory, :image)
     end
 end

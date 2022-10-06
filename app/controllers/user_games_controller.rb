@@ -15,13 +15,12 @@ class UserGamesController < ApplicationController
 
   # POST /user_games
   def create
-    @user_game = UserGame.new(user_game_params)
+    
+  @user_game = params[:game_id].map do |game|
 
-    if @user_game.save
-      render json: @user_game, status: :created, location: @user_game
-    else
-      render json: @user_game.errors, status: :unprocessable_entity
+     UserGame.create!({user_id:params[:user_id] , game_id: game})
     end
+    render json: @user_game
   end
 
   # PATCH/PUT /user_games/1
@@ -29,7 +28,7 @@ class UserGamesController < ApplicationController
     if @user_game.update(user_game_params)
       render json: @user_game
     else
-      render json: @user_game.errors, status: :unprocessable_entity
+      render json: @user_game.errors
     end
   end
 
@@ -46,6 +45,6 @@ class UserGamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_game_params
-      params.require(:user_game).permit(:user_id, :game_id, :late, :due_date, :returned)
+      params.permit(:user_id, :game_id, :late, :due_date, :returned)
     end
 end
