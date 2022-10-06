@@ -74,7 +74,8 @@ function Login({errors, setErrors}) {
     }
   
     else {
-      setErrors(requestJSON.messages)
+      setErrors(requestJSON.error)
+      console.log(requestJSON.error)
     }
   }
        
@@ -111,7 +112,8 @@ async function handleSignup(e) {
   }
 
   else {
-    setErrors(requestJSON.messages)
+    console.log(requestJSON, "signup")
+    setErrors(requestJSON.error)
   }
 }
 
@@ -134,9 +136,10 @@ async function handleSignup(e) {
     // //   }
     // // });
 
-  const errMessages = errors.map((err, idx) => <h1 key={idx}>{err}</h1>)
+  const errMessages = errors.map((err, idx) => <p className='errorStyle' key={idx}>{err}</p>)
 
   const handleJustifyClick = (value) => {
+    setErrors([])
     if (value === justifyActive) {
       return;
     }
@@ -145,7 +148,9 @@ async function handleSignup(e) {
   };
   return (
     <MDBContainer  className="p-3 my-5 d-flex flex-column w-50">
-  {errMessages}
+
+
+
     <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
       <MDBTabsItem>
         <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
@@ -169,15 +174,16 @@ async function handleSignup(e) {
           <p className="text-center mt-3">or:</p>
         
 
+  {errMessages}
         
         <MDBInput wrapperClass='mb-4' label='Username' id='form1.5' type='username' onChange={(e) => { setUsername(e.target.value) }}/>
         
-        {/* {errMessages} */}
+        
        
 
         <MDBInput wrapperClass='mb-4' label='Password' id='form2.5' type='password' onChange={(e) => { setPassword(e.target.value) }}/>
           
-       {/* {errMessages} */}
+       
 
         <div className="d-flex justify-content-between mx-4 mb-4">
           <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
@@ -198,47 +204,47 @@ async function handleSignup(e) {
 
         <MDBInput wrapperClass='mb-4' label='First Name' id='form1' type='text' onChange={(e) => { setFirstName(e.target.value) }} />
           
-        {/* {errMessages} */}
+        
 
         <MDBInput wrapperClass='mb-4' label='Last Name' id='form2' type='text' onChange={(e) => { setLastName(e.target.value) }} />
 
-        {/* {errMessages} */}
+        
 
         <MDBInput wrapperClass='mb-4' label='Username' id='form3' type='text' onChange={(e) => { setUserNameCreate(e.target.value) }} />
 
-       {/* {errMessages} */}
+       
 
         <MDBInput wrapperClass='mb-4' label='Email' id='form4' type='email' onChange={(e) => { setEmail(e.target.value) }} />
 
-        {/* {errMessages} */}
+        
 
         <MDBInput wrapperClass='mb-4' label='Password' id='form5' type='password' onChange={(e) => { setPasswordCreate(e.target.value) }} />
 
-       {/* {errMessages} */}
+       
 
         <MDBInput wrapperClass='mb-4' label='City' id='form6' type='text' onChange={(e) => { setCity(e.target.value) }} />
 
-        {/* {errMessages} */}
+        
 
         <MDBInput wrapperClass='mb-4' label='State' id='form7' type='text' onChange={(e) => { setState(e.target.value) }} />
         
-       {/* {errMessages} */}
+       
 
         <MDBInput wrapperClass='mb-4' label='Country' id='form8' type='text' onChange={(e) => { setCountry(e.target.value) }} />
 
-       {/* {errMessages} */}
+       
 
         <MDBInput wrapperClass='mb-4' label='Zip' id='form9' maxLength={10} type='number' onChange={(e) => { setZip(e.target.value) }} />
 
-       {/* {errMessages} */}
+       
 
         <MDBInput wrapperClass='mb-4' label='Credit Card' maxLength={16} id='form10' type='text' onChange={(e) => { setCreditCard(e.target.value) }} />
 
-       {/* {errMessages} */}
+       
 
         <MDBInput wrapperClass='mb-4' label='Phone Number' maxLength={16} id='form11' type="text" onChange={(e) => { setPhoneNumber(e.target.value) }} />
         
-        {/* {errMessages} */}
+        {errMessages}
 
         <MDBBtn onClick={(e) => handleSignup(e)} className="mb-4 w-100">Sign up</MDBBtn>
 

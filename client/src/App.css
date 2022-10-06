@@ -133,4 +133,7 @@ text-transform: uppercase;
     text-align: center;
 }
 
-
+.errorStyle {
+  text-align: center;
+  color: red
+}

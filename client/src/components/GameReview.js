@@ -1,6 +1,6 @@
 import React from 'react'
 
-function GameReview() {
+function GameReview({games, setGames}) {
   return (
     <div>GameReview</div>
   )

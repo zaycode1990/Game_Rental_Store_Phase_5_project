@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             
            
         else 
-            render json:{messages:['Check your username/password.']}, status: :unauthorized
+            render json:{error:['Check your username/password.']}, status: :unauthorized
         end
     end
 
