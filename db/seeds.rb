@@ -1,5 +1,7 @@
 require 'faker'
 
+require 'aws-sdk-s3'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -11,6 +13,10 @@ require 'faker'
 User.destroy_all
 
 Game.destroy_all
+
+
+
+
 
 def prepare
     username = Faker::Internet.username
