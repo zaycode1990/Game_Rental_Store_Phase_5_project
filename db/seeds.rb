@@ -235,155 +235,155 @@ def prepare
   )
 
   game1.image.attach(
-    io: File.open('./public/gameboxart/metal_gear_3.jpg'), 
+    io: File.open('/public/gameboxart/metal_gear_3.jpg'), 
     filename: 'metal_gear_3.jpg', 
     content_type: 'image/jpg'
   )
-  game2.image.attach(
-    io: File.open('./public/gameboxart/1125-devil-may-cry-3.jpg'), 
-    filename: '1125-devil-may-cry-3.jpg', 
-    content_type: 'image/jpg'
-  )
-  game3.image.attach(
-    io: File.open('./public/gameboxart/153271-jak-3-playstation-2-front-cover.jpg'), 
-    filename: '153271-jak-3-playstation-2-front-cover.jpg', 
-    content_type: 'image/jpg'
-  )
-  game4.image.attach(
-    io: File.open('./public/gameboxart/godofwar2.jpg'), 
-    filename: 'godofwar2.jpg', 
-    content_type: 'image/jpg'
-  )
-  game5.image.attach(
-    io: File.open('./public/gameboxart/kingdomhearts2.jpg'), 
-    filename: 'kingdomhearts2.jpg', 
-    content_type: 'image/jpg'
-  )
-  game6.image.attach(
-    io: File.open('./public/gameboxart/Ratchetandclank3box.jpg'), 
-    filename: 'Ratchetandclank3box.jpg', 
-    content_type: 'image/jpg'
-  )
-  game7.image.attach(
-    io: File.open('./public/gameboxart/ps2_rayman_3_hoodlum_havoc-110214.jpg'), 
-    filename: 'ps2_rayman_3_hoodlum_havoc-110214.jpg', 
-    content_type: 'image/jpg'
-  )
-  game8.image.attach(
-    io: File.open('./public/gameboxart/Ffxboxart.jpg'), 
-    filename: 'Ffxboxart.jpg', 
-    content_type: 'image/jpg'
-  )
-  game9.image.attach(
-    io: File.open('./public/gameboxart/shadowofcolossus.jpg'), 
-    filename: 'shadowofcolossus.jpg', 
-    content_type: 'image/jpg'
-  )
-  game10.image.attach(
-    io: File.open('./public/gameboxart/halo3.jpg'), 
-    filename: 'halo3.jpg', 
-    content_type: 'image/jpg'
-  )
-  game11.image.attach(
-    io: File.open('./public/gameboxart/haloreach.png'), 
-    filename: 'haloreach.png', 
-    content_type: 'image/png'
-  )
-  game12.image.attach(
-    io: File.open('./public/gameboxart/halo4.jpg'), 
-    filename: 'halo4.jpg', 
-    content_type: 'image/jpg'
-  )
-  game13.image.attach(
-    io: File.open('./public/gameboxart/gearsofwar.jpg'), 
-    filename: 'gearsofwar.jpg', 
-    content_type: 'image/jpg'
-  )
-  game14.image.attach(
-    io: File.open('./public/gameboxart/15418-gears-of-war-2.png'), 
-    filename: '15418-gears-of-war-2.png', 
-    content_type: 'image/png'
-  )
-  game15.image.attach(
-    io: File.open('./public/gameboxart/gears-3.jpg'), 
-    filename: 'gears-3.jpg', 
-    content_type: 'image/jpg'
-  )
-  game16.image.attach(
-    io: File.open('./public/gameboxart/fable2.jpg'), 
-    filename: 'fable2.jpg', 
-    content_type: 'image/jpg'
-  )
-  game17.image.attach(
-    io: File.open('./public/gameboxart/crackdown.jpg'), 
-    filename: 'crackdown.jpg', 
-    content_type: 'image/jpg'
-  )
-  game18.image.attach(
-    io: File.open('./public/gameboxart/Forza_Motorsport_3_Microsoft_Xbox_360_-_Gandorion_Games.jpg'), 
-    filename: 'Forza_Motorsport_3_Microsoft_Xbox_360_-_Gandorion_Games.jpg', 
-    content_type: 'image/jpg'
-  )
-  game19.image.attach(
-    io: File.open('./public/gameboxart/crackdown2.jpg'), 
-    filename: 'crackdown2.jpg', 
-    content_type: 'image/jpg'
-  )
-  game20.image.attach(
-    io: File.open('./public/gameboxart/donkeykongcountry.jpg'), 
-    filename: 'donkeykongcountry.jpg', 
-    content_type: 'image/jpg'
-  )
-  game21.image.attach(
-    io: File.open('./public/gameboxart/PaperMario.jpg'), 
-    filename: 'PaperMario.jpg', 
-    content_type: 'image/jpg'
-  )
-  game22.image.attach(
-    io: File.open('./public/gameboxart/mariogalaxy.jpg'), 
-    filename: 'mariogalaxy.jpg', 
-    content_type: 'image/jpg'
-  )
-  game23.image.attach(
-    io: File.open('./public/gameboxart/mariogalaxy2.jpg'), 
-    filename: 'mariogalaxy2.jpg', 
-    content_type: 'image/jpg'
-  )
-  game24.image.attach(
-    io: File.open('./public/gameboxart/mariosmashbrosbrawl.jpg'), 
-    filename: 'mariosmashbrosbrawl.jpg', 
-    content_type: 'image/jpg'
-  )
-  game25.image.attach(
-    io: File.open('./public/gameboxart/zeldasky.jpg'), 
-    filename: 'zeldasky.jpg', 
-    content_type: 'image/jpg'
-  )
-  game26.image.attach(
-    io: File.open('./public/gameboxart/metroidtrilogy.jpg'), 
-    filename: 'metroidtrilogy.jpg', 
-    content_type: 'image/jpg'
-  )
-  game27.image.attach(
-    io: File.open('./public/gameboxart/zeldatwilight.jpg'), 
-    filename: 'zeldatwilight.jpg', 
-    content_type: 'image/jpg'
-  )
-  game28.image.attach(
-    io: File.open('./public/gameboxart/xenobladechronicles.jpg'), 
-    filename: 'xenobladechronicles.jpg', 
-    content_type: 'image/jpg'
-  )
-  game29.image.attach(
-    io: File.open('./public/gameboxart/Okami.jpg'), 
-    filename: 'Okami.jpg', 
-    content_type: 'image/jpg'
-  )
-  game30.image.attach(
-    io: File.open('./public/gameboxart/112775-shin-megami-tensei-persona-3-fes-playstation-2-front-cover.jpg'), 
-    filename: '112775-shin-megami-tensei-persona-3-fes-playstation-2-front-cover.jpg', 
-    content_type: 'image/jpg'
-  )
+  # game2.image.attach(
+  #   io: File.open('/public/gameboxart/1125-devil-may-cry-3.jpg'), 
+  #   filename: '1125-devil-may-cry-3.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game3.image.attach(
+  #   io: File.open('/public/gameboxart/153271-jak-3-playstation-2-front-cover.jpg'), 
+  #   filename: '153271-jak-3-playstation-2-front-cover.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game4.image.attach(
+  #   io: File.open('/public/gameboxart/godofwar2.jpg'), 
+  #   filename: 'godofwar2.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game5.image.attach(
+  #   io: File.open('/public/gameboxart/kingdomhearts2.jpg'), 
+  #   filename: 'kingdomhearts2.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game6.image.attach(
+  #   io: File.open('./public/gameboxart/Ratchetandclank3box.jpg'), 
+  #   filename: 'Ratchetandclank3box.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game7.image.attach(
+  #   io: File.open('./public/gameboxart/ps2_rayman_3_hoodlum_havoc-110214.jpg'), 
+  #   filename: 'ps2_rayman_3_hoodlum_havoc-110214.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game8.image.attach(
+  #   io: File.open('./public/gameboxart/Ffxboxart.jpg'), 
+  #   filename: 'Ffxboxart.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game9.image.attach(
+  #   io: File.open('./public/gameboxart/shadowofcolossus.jpg'), 
+  #   filename: 'shadowofcolossus.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game10.image.attach(
+  #   io: File.open('./public/gameboxart/halo3.jpg'), 
+  #   filename: 'halo3.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game11.image.attach(
+  #   io: File.open('./public/gameboxart/haloreach.png'), 
+  #   filename: 'haloreach.png', 
+  #   content_type: 'image/png'
+  # )
+  # game12.image.attach(
+  #   io: File.open('./public/gameboxart/halo4.jpg'), 
+  #   filename: 'halo4.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game13.image.attach(
+  #   io: File.open('./public/gameboxart/gearsofwar.jpg'), 
+  #   filename: 'gearsofwar.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game14.image.attach(
+  #   io: File.open('./public/gameboxart/15418-gears-of-war-2.png'), 
+  #   filename: '15418-gears-of-war-2.png', 
+  #   content_type: 'image/png'
+  # )
+  # game15.image.attach(
+  #   io: File.open('./public/gameboxart/gears-3.jpg'), 
+  #   filename: 'gears-3.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game16.image.attach(
+  #   io: File.open('./public/gameboxart/fable2.jpg'), 
+  #   filename: 'fable2.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game17.image.attach(
+  #   io: File.open('./public/gameboxart/crackdown.jpg'), 
+  #   filename: 'crackdown.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game18.image.attach(
+  #   io: File.open('./public/gameboxart/Forza_Motorsport_3_Microsoft_Xbox_360_-_Gandorion_Games.jpg'), 
+  #   filename: 'Forza_Motorsport_3_Microsoft_Xbox_360_-_Gandorion_Games.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game19.image.attach(
+  #   io: File.open('./public/gameboxart/crackdown2.jpg'), 
+  #   filename: 'crackdown2.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game20.image.attach(
+  #   io: File.open('./public/gameboxart/donkeykongcountry.jpg'), 
+  #   filename: 'donkeykongcountry.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game21.image.attach(
+  #   io: File.open('./public/gameboxart/PaperMario.jpg'), 
+  #   filename: 'PaperMario.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game22.image.attach(
+  #   io: File.open('./public/gameboxart/mariogalaxy.jpg'), 
+  #   filename: 'mariogalaxy.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game23.image.attach(
+  #   io: File.open('./public/gameboxart/mariogalaxy2.jpg'), 
+  #   filename: 'mariogalaxy2.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game24.image.attach(
+  #   io: File.open('./public/gameboxart/mariosmashbrosbrawl.jpg'), 
+  #   filename: 'mariosmashbrosbrawl.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game25.image.attach(
+  #   io: File.open('./public/gameboxart/zeldasky.jpg'), 
+  #   filename: 'zeldasky.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game26.image.attach(
+  #   io: File.open('./public/gameboxart/metroidtrilogy.jpg'), 
+  #   filename: 'metroidtrilogy.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game27.image.attach(
+  #   io: File.open('./public/gameboxart/zeldatwilight.jpg'), 
+  #   filename: 'zeldatwilight.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game28.image.attach(
+  #   io: File.open('./public/gameboxart/xenobladechronicles.jpg'), 
+  #   filename: 'xenobladechronicles.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game29.image.attach(
+  #   io: File.open('./public/gameboxart/Okami.jpg'), 
+  #   filename: 'Okami.jpg', 
+  #   content_type: 'image/jpg'
+  # )
+  # game30.image.attach(
+  #   io: File.open('./public/gameboxart/112775-shin-megami-tensei-persona-3-fes-playstation-2-front-cover.jpg'), 
+  #   filename: '112775-shin-megami-tensei-persona-3-fes-playstation-2-front-cover.jpg', 
+  #   content_type: 'image/jpg'
+  # )
 
   # def game_prepare
   #  title = Faker::Gametitle
