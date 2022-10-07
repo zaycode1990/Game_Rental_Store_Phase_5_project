@@ -13,10 +13,11 @@ function Games({games, handleClick, handleDelete}) {
 const{user} = useContext(UserContext)
   
 const gamesImage = games.map( game => {
+  console.log(game.img)
   return (
   <div>
    <MDBCard key={game.id}>
-      <MDBCardImage src={game.image_url} position='top' alt='video game' width={400} height={400}/>
+      <MDBCardImage src={game.img} position='top' alt='video game' width={400} height={400}/>
       <MDBCardBody>
         <MDBCardTitle>{game.title}</MDBCardTitle>
         <MDBCardText>
