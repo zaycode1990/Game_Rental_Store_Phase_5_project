@@ -465,6 +465,19 @@ desc = Faker::Lorem.paragraph(sentence_count: 4)
     
 end
 
+User.create(
+  first_name: "Isaiah",
+  last_name: "Jefferson",
+  username: "admin",
+  password: "password", 
+  admin: true, 
+  phone_number: "4348652754", 
+  email: "ijandicos90@gmail.com",
+  city: "Richmond", 
+  state: "Virginia",
+  country: "USA",
+  zip: 23580,
+  credit_card: "0956345612345678")
 
 #  10.times{game = Game.create(game_prepare)}
 
