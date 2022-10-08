@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import {useNavigate} from 'react-router-dom'
 import {
   MDBCard,
   MDBCardBody,
@@ -8,8 +9,10 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import {UserContext} from '../UserContext'
-function Games({games, handleClick, handleDelete}) {
+function Games({games, handleClick, handleDelete, grabGameIdNavToForm}) {
 
+const nav = useNavigate()
+  
 const{user} = useContext(UserContext)
   
 const gamesImage = games.map( game => {
@@ -23,7 +26,15 @@ const gamesImage = games.map( game => {
         <MDBCardText>
          {game.platform} | {game.publisher}
         </MDBCardText>
-       {user.admin ?  <MDBBtn onClick={()=> handleDelete(game.id)} className='mx-2' color='danger'> Delete Game</MDBBtn> : <MDBBtn onClick={user.id === false ? null : () => handleClick(game)}>Add to cart</MDBBtn> } 
+       {user.admin ? <>
+      
+       <MDBBtn onClick={()=> {handleDelete(game.id) ; console.log("clicked delete")}} className='mx-2' color='danger'> Delete Game</MDBBtn> 
+       <MDBBtn onClick={()=> {grabGameIdNavToForm(game.id)}} className='mx-2' color='success'> Update Game</MDBBtn> 
+  
+       </> 
+
+        : 
+        <MDBBtn onClick={user.id === false ? null : () => handleClick(game)}>Add to cart</MDBBtn> } 
       </MDBCardBody>
     </MDBCard>
     </div>

@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState} from 'react';
 import './App.css';
+import { useNavigate } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Signup from './components/GameReview';
@@ -20,7 +21,14 @@ function App() {
   const [games, setGames] = useState([])
   const [gamesInCart, setGamesInCart] = useState([])
   const [errors, setErrors] = useState([])
-useEffect(() => {
+  const [game_id, setGame_Id] = useState(0)
+
+
+const nav = useNavigate()
+
+
+
+  useEffect(() => {
   fetch('/games')
   .then(res => res.json())
   .then(storeGames => {setGames(storeGames)
@@ -28,7 +36,7 @@ useEffect(() => {
   }).catch(err => setErrors(err))
 },[])
  
-console.log(errors)
+
 // useEffect(() => {
 //   getUser()
 // }, [])
@@ -54,16 +62,40 @@ const handleDelete = (id) => {
   const gamesFilter = games.filter(gameItem => gameItem.id !== id)
 setGames(gamesFilter)
 
-fetch(`games/${id}`,
+fetch(`/games/${id}`,
 {
 method: "DELETE",
 headers: {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
-}).catch((err) => setErrors(err))
+})
 }
 
+const handleAddGame = (game) => {
+  setGames([...games, game])
+}
+
+
+
+
+
+  function grabGameIdNavToForm(id) {
+    setGame_Id(id) 
+    nav('/ModifyStore') 
+    console.log("clicked update")}
+
+
+    function handleUpdatedGame(update) {
+      const updatedGameArr = games.map((game) => {
+        if (game.id === update.id) {
+          return update
+        } else {
+          return game
+        }
+      })
+      setGames(updatedGameArr)
+    }
 
   return(
 
@@ -76,9 +108,9 @@ headers: {
         <Route path="/login" index element={<Login errors={errors} setErrors={setErrors}/>}/>
         
         {user.admin ? <>
-        <Route path="/games" element={<Games setErrors={setErrors} games={games} handleClick={handleClick} handleDelete={handleDelete}/>}  />
+        <Route path="/games" element={<Games setErrors={setErrors} games={games} setGame_Id={setGame_Id} handleClick={handleClick} handleDelete={handleDelete} grabGameIdNavToForm={grabGameIdNavToForm}/>}  />
         <Route path="/cart" element={<Cart gamesInCart={gamesInCart}/>}  />
-        <Route path="/modifystore" element={<ModifyStore/>}  />
+        <Route path="/modifystore" element={<ModifyStore addedGame={handleAddGame} handleUpdatedGame={handleUpdatedGame} game_id={game_id} games={games} />}  />
         <Route path="/storeledger" element={<StoreLedger/>}  />
         </>
           :
