@@ -8,6 +8,7 @@ import Signup from './components/GameReview';
 import Home from './components/Home';
 import Games from './components/Games';
 import Cart from './components/Cart';
+import GameDetails from './components/GameDetails';
 import ModifyStore from './components/ModifyStore';
 import StoreLedger from './components/StoreLedger';
 import {Route, Routes } from 'react-router-dom';
@@ -22,6 +23,7 @@ function App() {
   const [gamesInCart, setGamesInCart] = useState([])
   const [errors, setErrors] = useState([])
   const [game_id, setGame_Id] = useState(0)
+  const [currentGame, setCurrentGame] = useState(null)
 
 
 const nav = useNavigate()
@@ -97,6 +99,11 @@ const handleAddGame = (game) => {
       setGames(updatedGameArr)
     }
 
+
+    const updateGames = (game) => {
+      setGames([...games, game])}
+
+
   return(
 
 
@@ -108,15 +115,17 @@ const handleAddGame = (game) => {
         <Route path="/login" index element={<Login errors={errors} setErrors={setErrors}/>}/>
         
         {user.admin ? <>
-        <Route path="/games" element={<Games setErrors={setErrors} games={games} setGame_Id={setGame_Id} handleClick={handleClick} handleDelete={handleDelete} grabGameIdNavToForm={grabGameIdNavToForm}/>}  />
+        <Route path="/games" element={<Games setErrors={setErrors}  games={games} setGame_Id={setGame_Id} handleClick={handleClick} handleDelete={handleDelete} grabGameIdNavToForm={grabGameIdNavToForm}/>}  />
         <Route path="/cart" element={<Cart gamesInCart={gamesInCart}/>}  />
-        <Route path="/modifystore" element={<ModifyStore addedGame={handleAddGame} handleUpdatedGame={handleUpdatedGame} game_id={game_id} games={games} />}  />
+        <Route path="/modifystore" element={<ModifyStore addedGame={handleAddGame} handleUpdatedGame={handleUpdatedGame} game_id={game_id} games={games} updateGames={updateGames} setGame_Id={setGame_Id}/>}  />
         <Route path="/storeledger" element={<StoreLedger/>}  />
+
         </>
           :
           <>
-          <Route path="/games" element={<Games games={games} handleClick={handleClick}/>}  />
+          <Route path="/games" element={<Games games={games} setCurrentGame={setCurrentGame} handleClick={handleClick}/>}  />
           <Route path="/cart" element={<Cart gamesInCart={gamesInCart}/>}  />
+          <Route path="/games/:id" element={<GameDetails currentGame={currentGame}/>}  />
           </>
 }
       </Routes>
