@@ -1,24 +1,2 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Flatiron Capstone Project that displays knowledge on creating an API with relational Models including a many to many relationship. The api seeds game data for the Frontend game-rental application and handles full restful CRUD actions on the Game model from request by the Frontend. Active Storage is also install and functionally but deactivated due to convenience of having an html image, I'll include active storage and aws s3 functionality at a later date. Validations and error handling also handled on login and signup routes.    
