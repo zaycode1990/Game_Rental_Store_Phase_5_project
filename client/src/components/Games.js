@@ -30,17 +30,16 @@ const gamesImage = games.map( game => {
         <MDBCardText>
          {game.platform} | {game.publisher}
         </MDBCardText>
-        {game.game_reviews.map(review =>{
-          return (<div>
-            <h1>{review.user.username}</h1>
-            <MDBCardText>{review.title}</MDBCardText>
-            <MDBCardText>{review.desc}</MDBCardText>
-            <MDBCardLink href='#'>Another link</MDBCardLink>
-          </div>)
-        })}
+        <MDBCardLink onClick={()=>{
+        setCurrentGame({...game})
+        nav(`/games/${game.id}`)
+        }}>Go to game reviews</MDBCardLink>
+        
+        <br></br>
+        
        {user.admin ? <>
       
-       <MDBBtn onClick={()=> {handleDelete(game.id) ; console.log("clicked delete")}} className='mx-2' color='danger'> Delete Game</MDBBtn> 
+       <MDBBtn onClick={()=> {handleDelete(game.id)}} className='mx-2' color='danger'> Delete Game</MDBBtn> 
        <MDBBtn onClick={()=> {grabGameIdNavToForm(game.id)}} className='mx-2' color='success'> Update Game</MDBBtn> 
   
        </> 

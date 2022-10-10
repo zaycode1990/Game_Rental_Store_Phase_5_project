@@ -27,7 +27,7 @@ function ModifyStore({  updateGames, game_id, handleUpdatedGame, setGame_Id}) {
       img
     }
 
-    console.log(addedGame)
+    
     fetch('/games', {
       method: "POST",
       headers: {

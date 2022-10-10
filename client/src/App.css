@@ -139,3 +139,7 @@ text-transform: uppercase;
 }
 
 
+.col-md {
+  flex: 1 0;
+  padding-top: 100px;
+}

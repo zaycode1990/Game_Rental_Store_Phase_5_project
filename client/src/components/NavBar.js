@@ -28,7 +28,7 @@ const handleLogout = (e) => {
 }
   return (
     <nav className="navBar">
-    {user.id === false ? null :  <a className='mx-3' href='/cart'>
+    {user.id === false ? null :  <a className='mx-3' >
          <MDBIcon className="layer1" fas icon='shopping-cart' size='lg' />
         <MDBBadge className='layer2' color='danger' notification pill >
           {gamesInCart.length}
@@ -43,20 +43,17 @@ const handleLogout = (e) => {
     <a href="/games" name="games" onClick={navigate}>
       Games
     </a>
-    <a href="/cart" name="cart" onClick={navigate}>
-      Cart
-    </a>
+
    {  user.admin ?
     <>
     <a href="/modifystore" name="modifystore" onClick={navigate}>
       ModifyStore
     </a>
-    <a href="/storeledger" name="storeledger" onClick={navigate}>
-      storeledger
-    </a>
     </>
     :
-    null
+        <a href="/cart" name="cart" onClick={navigate}>
+      Cart
+    </a>
     } 
     
     

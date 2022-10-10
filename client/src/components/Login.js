@@ -117,24 +117,6 @@ async function handleSignup(e) {
   }
 }
 
- // }).then((r) => {
-    //   // if (r.ok) {
-    //   //  
-    //   //  
-    //   // }
-    //   console.log(r)
-    //  r.json()
-     
-    //  throw new Error ("what the hell is going on")
-    // }
-    // ).catch(err=> console.log(err));//.then((r) => {
-    // //   setIsLoading(false);
-    // //   if (r.ok) {
-    // //     r.json().then((user) => onLogin(user));
-    // //   } else {
-    // //     r.json().then((err) => setErrors(err.errors));
-    // //   }
-    // // });
 
   const errMessages = errors.map((err, idx) => <p className='errorStyle' key={idx}>{err}</p>)
 
@@ -201,6 +183,7 @@ async function handleSignup(e) {
 
           <p className="text-center mt-3">or:</p>
       
+        {errMessages}
 
         <MDBInput wrapperClass='mb-4' label='First Name' id='form1' type='text' onChange={(e) => { setFirstName(e.target.value) }} />
           
@@ -244,7 +227,6 @@ async function handleSignup(e) {
 
         <MDBInput wrapperClass='mb-4' label='Phone Number' maxLength={16} id='form11' type="text" onChange={(e) => { setPhoneNumber(e.target.value) }} />
         
-        {errMessages}
 
         <MDBBtn onClick={(e) => handleSignup(e)} className="mb-4 w-100">Sign up</MDBBtn>
 
