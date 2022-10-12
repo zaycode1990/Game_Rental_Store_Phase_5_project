@@ -17,17 +17,17 @@ function LeaveGameReview({ currentGame }) {
     const { user } = useContext(UserContext)
     const [review, setReview] = useState("")
     const [title, setTitle] = useState("")
-    
-    function handleSubmitReview(e){
+
+    function handleSubmitReview(e) {
         e.preventDefault()
         fetch('/game_reviews', {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify({user_id: user.id, game_id: currentGame.id, title: title, desc: review})
-          }).then(r => r.json()).then(data => console.log(data)).catch(error => console.log(error))
-      
+            body: JSON.stringify({ user_id: user.id, game_id: currentGame.id, title: title, desc: review })
+        }).then(r => r.json()).then(data => console.log(data)).catch(error => console.log(error))
+
     }
 
 
@@ -36,8 +36,7 @@ function LeaveGameReview({ currentGame }) {
         marginLeft: "auto",
         marginRight: "auto"
     }
-    console.log(currentGame)
-    console.log(review)
+
 
     return (
         <div className="container">
@@ -81,7 +80,7 @@ function LeaveGameReview({ currentGame }) {
                                     id="exampleFormControlTextarea1"
                                     rows="5"
                                     value={review}
-                                    onChange={(e) => setReview(e.target.value) }
+                                    onChange={(e) => setReview(e.target.value)}
 
                                 />
                             </div>
@@ -100,4 +99,3 @@ function LeaveGameReview({ currentGame }) {
 }
 
 export default LeaveGameReview
- 

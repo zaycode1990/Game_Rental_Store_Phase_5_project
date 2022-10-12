@@ -16,10 +16,10 @@ import { UserContext } from '../UserContext'
 
 
 
-function Cart({setGamesInCart, gamesInCart, handleDeleteCartGame, thankYouMessage, setThankYouMessage}) {
-  console.log(gamesInCart)
+function Cart({ setGamesInCart, gamesInCart, handleDeleteCartGame, thankYouMessage, setThankYouMessage }) {
+
   const { user } = useContext(UserContext)
- 
+
 
   const gameID = gamesInCart.map(game => game.id)
 
@@ -34,12 +34,12 @@ function Cart({setGamesInCart, gamesInCart, handleDeleteCartGame, thankYouMessag
       body: JSON.stringify({ user_id: user.id, game_id: gameID }),
     })
     debugger
-  setGamesInCart([])
-   setThankYouMessage("Checkout Successful. Thanks for Renting!")
-   setTimeout(()=>{
-     setThankYouMessage("")
-  },2000)
-}
+    setGamesInCart([])
+    setThankYouMessage("Checkout Successful. Thanks for Renting!")
+    setTimeout(() => {
+      setThankYouMessage("")
+    }, 2000)
+  }
 
 
 
@@ -60,8 +60,8 @@ function Cart({setGamesInCart, gamesInCart, handleDeleteCartGame, thankYouMessag
             <MDBTypography tag="h6" className="text-black mb-0">
               {game.title}
             </MDBTypography>
-            <MDBBtn style={{marginTop: "7px"}} onClick={()=>{handleDeleteCartGame(game.id)}} color='danger' floating tag='a'>
-            <MDBIcon fas icon="times" />
+            <MDBBtn style={{ marginTop: "7px" }} onClick={() => { handleDeleteCartGame(game.id) }} color='danger' floating tag='a'>
+              <MDBIcon fas icon="times" />
             </MDBBtn>
           </MDBCol>
 
@@ -133,13 +133,13 @@ function Cart({setGamesInCart, gamesInCart, handleDeleteCartGame, thankYouMessag
                       </div>
 
                       <hr className="my-4" />
-                      {user.id !== false ?<>
+                      {user.id !== false ? <>
                         <MDBBtn onClick={(e) => handleCartCheckout(e)} color="dark" block size="lg">
                           Checkout
                         </MDBBtn>
-                        
+
                         <h1>{thankYouMessage}</h1>
-                        </>
+                      </>
                         :
                         null
 

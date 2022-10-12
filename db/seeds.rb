@@ -471,7 +471,7 @@ User.create(
   username: "admin",
   password: "password", 
   admin: true, 
-  phone_number: "4348652754", 
+  phone_number: "", 
   email: "ijandicos90@gmail.com",
   city: "Richmond", 
   state: "Virginia",
