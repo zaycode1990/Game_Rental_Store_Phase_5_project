@@ -1,4 +1,4 @@
-class SubscriptionController < ApplicationController
+class SubscriptionsController < ApplicationController
     before_action :set_user_game, only: %i[ show update destroy ]
 
   # GET /user_games
@@ -49,5 +49,4 @@ class SubscriptionController < ApplicationController
     def subscription_params
       params.permit(:user_id, :sub_fee, :sub_status)
     end
-end
 end
